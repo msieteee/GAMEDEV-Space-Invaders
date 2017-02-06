@@ -1,5 +1,5 @@
 # Space-Invaders-GAMEDEV
-GAMEDEV Midterm Project
+<h1>GAMEDEV Midterm Project</h1>
 
 Create a clone of Space Invaders. This is a game where a set of enemies would spawn from the top of the screen and would move to the right. When the rightmost enemy touches the end of the screen, it would move all the invaders down and then change the movement to the left. The invaders would go down until it would touch the player who is stationed at the bottom of the screen. If the invaders touch the player, it will result into a game over. The game over should prompt to the player that he/she has lost.
 
@@ -8,7 +8,7 @@ Players can use the left and right keys to go left and right. Alternatively, the
 The objective of the game is for the player to score the highest score similar to how old arcade games are played. When the player dies, they will be asked of their name and their score and name will be recorded. There should be a menu where the player can chose to play the game or look at the scoreboard. 
 
 
-<h2>Other specifications.<h2>
+<h2>Other specifications.</h2>
 <ul>
 <li>There is a maximum of 3 bullets on screen from the player. Should the player try to fire once the max is reached, no new bullets will spawn.</li>
 <li>The game models must be in 3D and so sprites of images cannot be used to show the player or the enemies. Pre-made assets may be used. Do not use simple shapes like cubes or spheres only. There should be actual enemy and player models.</li>
