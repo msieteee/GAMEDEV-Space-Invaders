@@ -23,7 +23,7 @@ public class Destroy : MonoBehaviour {
 
         Cooldown = false;
 
-        nextFire = nextFire + Random.Range(1f, 60f);
+        nextFire = 0 + Random.Range(0, 1);
         time = 20;       
 	}
 	
@@ -34,12 +34,11 @@ public class Destroy : MonoBehaviour {
             time = Time.timeSinceLevelLoad;
             if (time > nextFire)
             {
-                nextFire = nextFire + Random.Range(1f, 30f);
+                nextFire = nextFire + Random.Range(0f, 30f);
 
                 Instantiate(bullet,
                                 trans.position + new Vector3(0, -1f, 0),
                                 Quaternion.identity);
-
             }
         }
     }

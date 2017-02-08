@@ -9,6 +9,7 @@ public class WorldScript {
     private int GAME_SCORE = 0;
     private int CURR_LEVEL = 1;
     private int[] HIGH_SCORE = new int[5];
+    private bool GAME_OVER = false;
 
     public static WorldScript getInstance()
     {
@@ -78,5 +79,20 @@ public class WorldScript {
     public int GetLevel()
     {
         return CURR_LEVEL;
+    }
+
+    public void ResetGameOver()
+    {
+        GAME_OVER = false;
+    }
+
+    public void GameOver()
+    {
+        GAME_OVER = true;
+    }
+
+    public bool IsGameOver()
+    {
+        return GAME_OVER;
     }
 }

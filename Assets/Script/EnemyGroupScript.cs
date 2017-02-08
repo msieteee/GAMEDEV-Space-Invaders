@@ -13,6 +13,8 @@ public class EnemyGroupScript : MonoBehaviour
     private bool GO_RIGHT;
     private float DELAY;
 
+    public GameObject prompt;
+
     void Start()
     {
         obj = gameObject;
@@ -40,11 +42,11 @@ public class EnemyGroupScript : MonoBehaviour
             
             if (GO_RIGHT)
             {
-                trans.Translate(new Vector3(ws.GetLevel() * 0.005f, 0, 0));
+                trans.Translate(new Vector3(ws.GetLevel() * 0.5f, 0, 0));
             }
             else
             {
-                trans.Translate(new Vector3(-ws.GetLevel() * 0.005f, 0, 0));
+                trans.Translate(new Vector3(-ws.GetLevel() * 0.5f, 0, 0));
             }
 
             if ((trans.position.x >= boundaryRight) || (trans.position.x <= boundaryLeft))
@@ -57,6 +59,19 @@ public class EnemyGroupScript : MonoBehaviour
         else
         {
             DELAY -= Time.deltaTime;
+        }
+
+        if(trans.localPosition.y < -6.2f)
+        {
+            if (!ws.IsGameOver())
+            {
+                ws.GameOver();
+                Instantiate(prompt,
+                new Vector3(-5.66f, 4.1f, 24.81724f),
+                Quaternion.identity);
+            }
+
+            Destroy(obj);
         }
 
     }
