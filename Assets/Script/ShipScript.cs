@@ -61,7 +61,7 @@ public class ShipScript : MonoBehaviour {
         Destroy(obj);
 
         Instantiate(prompt,
-            new Vector3(-5.66f, 4.1f, 24.81724f),
+            new Vector3(0, 4.1f, 24.81724f),
             Quaternion.identity);
 
         var temp = Instantiate(explode,

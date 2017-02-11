@@ -8,7 +8,8 @@ public class WorldScript {
     private int KILL_COUNT = 0;
     private int GAME_SCORE = 0;
     private int CURR_LEVEL = 1;
-    private int[] HIGH_SCORE = new int[5];
+    private int[] HIGH_SCORE = {20,15,10,8,5};
+    private string[] NAMES = {"Johnny","Mia","Tori","James","Sasha"};
     private bool GAME_OVER = false;
 
     public static WorldScript getInstance()
@@ -95,4 +96,26 @@ public class WorldScript {
     {
         return GAME_OVER;
     }
+
+    public string getName(int i)
+    {
+        return NAMES[i];
+    }
+
+    public void setName(int i, string name)
+    {
+        NAMES[i] = name;
+    }
+
+    public int getHighScore(int i)
+    {
+        
+        return HIGH_SCORE[i];
+    }
+
+    public void setHighScore(int i, int score)
+    {
+        HIGH_SCORE[i] = score;
+    }
+
 }
