@@ -11,6 +11,7 @@ public class WorldScript {
     private int[] HIGH_SCORE = {20,15,10,8,5};
     private string[] NAMES = {"Johnny","Mia","Tori","James","Sasha"};
     private bool GAME_OVER = false;
+    private bool HARD_MODE = false;
 
     public static WorldScript getInstance()
     {
@@ -116,6 +117,17 @@ public class WorldScript {
     public void setHighScore(int i, int score)
     {
         HIGH_SCORE[i] = score;
+    }
+
+    public bool isHARD()
+    {
+        return HARD_MODE;
+    }
+
+    public void setMode(bool mode)
+    {
+        HARD_MODE = mode;
+
     }
 
 }

@@ -11,6 +11,7 @@ public class ShipScript : MonoBehaviour {
     private Transform trans;
     private WorldScript ws;
     private bool Cooldown;
+    private int bull;
 
     void Start()
     {
@@ -18,6 +19,11 @@ public class ShipScript : MonoBehaviour {
         trans = transform;
         ws = WorldScript.getInstance();
         Cooldown = false;
+        if (ws.isHARD() == false)
+        {
+            bull = 3;
+        }
+        else bull = 1;
     }   
 
     void Update()
@@ -37,7 +43,7 @@ public class ShipScript : MonoBehaviour {
         { 
             if (!Cooldown)
             {
-                if (ws.GetBulletCount() < 3)
+                if (ws.GetBulletCount() < bull)
                 {
                     ws.AddBullet();
                     Instantiate(bullet,

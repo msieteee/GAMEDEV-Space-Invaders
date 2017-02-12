@@ -21,12 +21,18 @@ public class MenuButtons : MonoBehaviour {
         ws.ResetLevel();
         ws.ResetGameOver();
         ws.ResetKills();
+        ws.setMode(false);
         SceneManager.LoadScene("GameScene");
     }
 
-    public void LoadTimeAttack()
+    public void LoadHardMode()
     {
-
+        ws.ResetScore();
+        ws.ResetLevel();
+        ws.ResetGameOver();
+        ws.ResetKills();
+        ws.setMode(true);
+        SceneManager.LoadScene("GameScene");
     }
 
     public void LoadLeaderboard()

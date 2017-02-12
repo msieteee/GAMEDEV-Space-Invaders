@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreScript : MonoBehaviour {
 
     public GameObject prompt;
+    public GameObject level;
     private GameObject obj;
     private Transform trans;
     private WorldScript ws;
@@ -18,7 +19,7 @@ public class ScoreScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         obj.GetComponent<TextMesh>().text = "SCORE: " + ws.GetScore();
-
+        level.GetComponent<TextMesh>().text = "LEVEL " + ws.GetLevel();
         if(ws.GetKills() != 0 && ws.GetKills() % 30 == 0)
         {
             ws.ResetKills();
