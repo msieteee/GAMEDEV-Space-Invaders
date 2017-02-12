@@ -14,7 +14,7 @@ public class LeaderboardScript : MonoBehaviour {
         score.text = "";
         for (int i = 0; i < 5; i++)
         {
-            score.text += ws.getName(i)+"\n"+ws.getHighScore(i)+"\n";
+            score.text += ws.getName(i)+" : "+ws.getHighScore(i)+"\n";
             
         }
 	}
