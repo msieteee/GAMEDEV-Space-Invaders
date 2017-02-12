@@ -5,6 +5,7 @@ using UnityEngine;
 public class Destroy : MonoBehaviour {
     public GameObject explode;
     public GameObject bullet;
+    public GameObject prompt;
     private GameObject obj;
     private Transform trans;
     private WorldScript ws;
@@ -23,8 +24,8 @@ public class Destroy : MonoBehaviour {
 
         Cooldown = false;
 
-        nextFire = 0 + Random.Range(0, 1);
-        time = 20;       
+        nextFire = Random.Range(Time.timeSinceLevelLoad, Time.timeSinceLevelLoad + 20);
+        time = 0;       
 	}
 	
 	// Update is called once per frame
@@ -34,11 +35,34 @@ public class Destroy : MonoBehaviour {
             time = Time.timeSinceLevelLoad;
             if (time > nextFire)
             {
-                nextFire = nextFire + Random.Range(0f, 30f);
+                nextFire = nextFire + Random.Range(time, time + 20);
 
                 Instantiate(bullet,
                                 trans.position + new Vector3(0, -1f, 0),
                                 Quaternion.identity);
+            }
+        }
+
+        if (trans.position.y < -0.5f)
+        {
+
+            Debug.Log(trans.position.y);
+            if (!ws.IsGameOver())
+            {
+                ws.GameOver();
+                Instantiate(prompt,
+                new Vector3(0, 6.1f, 24.81724f),
+                Quaternion.identity);
+
+                GameObject ship = GameObject.FindGameObjectWithTag("Ship");
+
+                Destroy(GameObject.FindGameObjectWithTag("Ship"));
+
+                var temp = Instantiate(explode,
+                ship.transform.position,
+                Quaternion.identity);
+
+                Destroy(temp, 0.6f);
             }
         }
     }

@@ -42,11 +42,11 @@ public class EnemyGroupScript : MonoBehaviour
             
             if (GO_RIGHT)
             {
-                trans.Translate(new Vector3(ws.GetLevel() * 0.5f, 0, 0));
+                trans.Translate(new Vector3(ws.GetLevel() * 0.05f, 0, 0));
             }
             else
             {
-                trans.Translate(new Vector3(-ws.GetLevel() * 0.5f, 0, 0));
+                trans.Translate(new Vector3(-ws.GetLevel() * 0.05f, 0, 0));
             }
 
             if ((trans.position.x >= boundaryRight) || (trans.position.x <= boundaryLeft))
@@ -61,16 +61,8 @@ public class EnemyGroupScript : MonoBehaviour
             DELAY -= Time.deltaTime;
         }
 
-        if(trans.localPosition.y < -6.2f)
+        if(trans.localPosition.y < -8.5f)
         {
-            if (!ws.IsGameOver())
-            {
-                ws.GameOver();
-                Instantiate(prompt,
-                new Vector3(-5.66f, 4.1f, 24.81724f),
-                Quaternion.identity);
-            }
-
             Destroy(obj);
         }
 

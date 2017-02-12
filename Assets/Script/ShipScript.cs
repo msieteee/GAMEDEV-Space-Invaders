@@ -60,9 +60,13 @@ public class ShipScript : MonoBehaviour {
     {
         Destroy(obj);
 
-        Instantiate(prompt,
-            new Vector3(0, 4.1f, 24.81724f),
-            Quaternion.identity);
+        if (!ws.IsGameOver())
+        {
+            ws.GameOver();
+            Instantiate(prompt,
+                new Vector3(0, 6.1f, 24.81724f),
+                Quaternion.identity);
+        }
 
         var temp = Instantiate(explode,
             obj.gameObject.transform.position,
